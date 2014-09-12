@@ -4,15 +4,17 @@
 <div ng-controller="IndexCtrl">
 
 
-		<h3>{{typing}}</h3>
 
-	<form ng-submit="submit()">
-		<input type="text" ng-model = "typing" placeholder = "Enter Word">
+	<form action="javascript:void(0);" ng-submit="submit()">
+		<input type="text" ng-model="word" placeholder = "Enter Word">
 		<button>Enter</button>
 
-				<h3>{{typing}}</h3>
+				<h3>{{word}}</h3>
 	</form>
 	
+	<form action="javascript:void(0);" ng-submit="guess()">
+		<input type="text" ng-model="letter" placeholder = "Letter">
+	</form>
 
 {{title}}
 
