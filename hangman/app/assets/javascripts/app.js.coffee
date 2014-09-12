@@ -1,15 +1,15 @@
 HangMan = angular.module "HangMan", []
 
-HangMan.controller "IndexCtrl", ['$scope', (scope) ->
+HangMan.controller "IndexCtrl", ['$scope', ($scope) ->
 	$scope.title = "Gettin Supa Jiggy with HangMan"
+	$scope.word = []
 
-	$scope.word = {}
-
-	$scope.hang = []
-
-	Hang.filter 'gameLogic', ->
-		(word) ->
-			word.split("") << hang
+	$scope.$watch "typing", ->
+		if $scope.typing == "hangman"
+			$scope.notice = "You got it mofo!"
+			$scope.removed = true
+			$scope.submit == ""
+			$scope.typing.slice.push() = []
 
 
 	]
