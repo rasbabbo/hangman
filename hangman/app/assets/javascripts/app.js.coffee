@@ -24,10 +24,10 @@ HangMan.controller "IndexCtrl", ['$scope', ($scope) ->
 
 	$scope.displayChars = ->
 		chars = $scope.currentWord.split("")
-		_.each(chars, = (val, index) ->
+		_.each "chars", [ (val, index) ->
 			if $scope.guessedChars.indexOf(val) == -1
 				chars[index] = "_"
-
+			]
 
 
 

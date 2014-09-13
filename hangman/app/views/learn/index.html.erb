@@ -6,18 +6,25 @@
 
 
 	<form ng-submit="addWord()">
-		<input type="text" ng-model="word" placeholder = "Enter New Word">
-		<button>Enter</button>
-
-				<h3>{{word}}</h3>
+		<input type="password" name="newWord" ng-model="newWord" placeholder = "Enter New Word"> <br>
+		<button>add Word, Werd</button>
 	</form>
+
+	<span ng-repeat="char in displayChars() track by $index">
+		{{char}}
+	</span>
 	
-	<form action="javascript:void(0);" ng-submit="guess()">
-		<input type="text" ng-model="letter" placeholder = "Letter">
+	<form ng-submit="checkGuess()">
+		<input type="text" name="guess" ng-model="guess">
+		<button>Guess</button>
 	</form>
 
-	{{guess}}
-
-{{title}}
+	<div ng-pluralize count="guessCount" when="{'0' : 'No guesses.', 'one': '1 guess.', 'other': '{}guesses.'}">
+		{{guessCount}}
+	</div>
+	
+	<div ng-repeat="characted in guessedChars track by $index">
+		{{character}}
+	</div>
 
 </div>
