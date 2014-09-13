@@ -1,7 +1,26 @@
-HangMan = angular.module "HangMan", []
+HangMan = angular.module "HangMan", [ "ngRoute", "templates"]
+
+
+#initialize the router: 
+
+HangMan.config ["$routeProvider", "$locationProvider", ($routeProvider, $locationProvider) ->
+	$routeProvider
+		.when "/",
+			templateUrl: "index.html",
+			controller: "IndexCtrl"
+	.otherwise
+		redirectTo: "/"
+]
+
+
+#create controller
 
 HangMan.controller "IndexCtrl", ['$scope', ($scope) ->
-	$scope.currentWord = {}
+
+	$scope.alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+	$scope.guesses = []
+	$scope.hiddenWords = []
+	$scope.button = true
 
 	$scope.initialize = ->
 		$scope.guessChars = []
