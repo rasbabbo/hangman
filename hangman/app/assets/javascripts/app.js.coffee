@@ -28,8 +28,5 @@ HangMan.controller "IndexCtrl", ['$scope', ($scope) ->
 			if $scope.guessedChars.indexOf(val) == -1
 				chars[index] = "_"
 			]
-
-
-
 	]
 
