@@ -17,20 +17,34 @@ HangMan.config ["$routeProvider", "$locationProvider", ($routeProvider, $locatio
 
 HangMan.controller "IndexCtrl", ['$scope', ($scope) ->
 
-	$scope.alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+	$scope.alphabets = "abcdefghijklmnopqrstuvwxyz".split("")
 	$scope.guesses = []
-	$scope.hiddenWords = []
+	$scope.word = []
+	$scope.hiddenWord = []
+	$scope.wordSaved = false
 	$scope.button = true
-
-	$scope.initialize = ->
-		$scope.guessChars = []
-		$scope.guessCount = 0
+	$scope.counter = 0
+	$scope.max = 6
 
 
-	$scope.addWord = ->
-		$scope.currentWord = $scope.newWord
-		$scope.newWord = ""
-		$scope.initialize()
+
+	$scope.addWord = (word) ->
+		$scope.word = word.hiddenWord.split("")
+		console.log("word,", $scope.word)
+		$scope.wordSaved = true
+
+		i = 0
+		while i < $scope.word.length
+			newChar = {}
+			char = $scope.word[i]
+			newChar.ind
+
+
+	$scope.getGuess = (guess) ->
+		console.log(guess)
+		$scope.guesses.push(guess)
+		console.log($scope.guesses)
+		this.showGuess = true
 
 
 
@@ -49,3 +63,6 @@ HangMan.controller "IndexCtrl", ['$scope', ($scope) ->
 			]
 	]
 
+HangMan.config ["$httpProvider", ($httpProvider) ->
+	$httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content')
+]
