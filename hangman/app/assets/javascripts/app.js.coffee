@@ -26,6 +26,8 @@ HangMan.controller "IndexCtrl", ['$scope', ($scope) ->
 
 		$scope.letters = "abcdefghijklmnopqrstuvwxyz".split("")
 
+		$scope.submitted = true
+
 		#guess features
 		$scope.guesses = []
 		$scope.counter = true
